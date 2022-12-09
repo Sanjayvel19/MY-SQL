@@ -1,0 +1,74 @@
+-- Creating Table
+CREATE TABLE student(
+    student_id INT AUTO_INCREMENT,
+    student_name VARCHAR(10) NOT NULL,
+    major VARCHAR(20) DEFAULT 'undecided',
+    PRIMARY KEY(student_id)
+);
+
+-- Here, AUTO INCREMENT, NOT NULL and DEFAULT are constraints.
+
+DESCRIBE student;
+
+ALTER TABLE student ADD gpa DECIMAL(3,2);
+DESCRIBE student;
+
+ALTER TABLE student DROP gpa;
+DESCRIBE student;
+
+SELECT * FROM student;
+
+-- Inserting Data inside the table
+
+INSERT INTO student(student_name, major) VALUES('Jack', 'Biology');
+INSERT INTO student(student_name, major)  VALUES('Kate', 'Sociology');
+INSERT INTO student(student_name) VALUES('Claire');
+INSERT INTO student(student_name, major)  VALUES('Jack', 'Biology');
+INSERT INTO student(student_name, major)  VALUES('Mike', 'Computer Science');
+
+-- UPDATE AND DELETE
+
+UPDATE student
+SET major = 'Bio'
+WHERE major = 'Biology';
+
+UPDATE student
+SET major = 'English'
+WHERE student_id = 3;
+
+INSERT INTO student(student_name, major) VALUES('John','Histroy');
+
+DELETE FROM student
+WHERE student_id >5; 
+
+-- Basic Quries
+
+SELECT student_name, major
+FROM student;
+
+SELECT student.student_name
+FROM student
+ORDER BY student_name;
+
+SELECT *
+FROM student
+ORDER BY student_name, major;
+
+SELECT *
+FROM student
+ORDER BY student_id DESC;
+
+SELECT student_name, major
+FROM student
+WHERE major = 'Bio' OR student_name = 'Claire';
+
+SELECT student_name, major
+FROM student
+WHERE student_id <= 3 AND student_name <> 'Jack';
+
+SELECT *
+FROM student
+WHERE student_name IN ('Claire','Mike','Kate');
+
+-- DROP the Table
+DROP TABLE student;
