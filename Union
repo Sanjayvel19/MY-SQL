@@ -1,0 +1,30 @@
+/*
+ UNIONS
+ The number of columns taken from each and every table should be same.
+ The data types of the columns should be same.
+ */
+
+-- Find the list of employee and branch name
+
+SELECT first_name AS Company_People
+FROM employee
+UNION
+SELECT branch_name
+FROM branch
+UNION
+SELECT client_name
+FROM client;
+
+-- Find the list of clients and branch suppliers
+SELECT client_name, branch_id
+FROM client
+UNION
+SELECT supplier_name, branch_id
+FROM branch_supplier;
+
+-- Find the total spent and earned by the company
+SELECT total_sales
+FROM works_with
+UNION
+SELECT salary
+FROM employee;
