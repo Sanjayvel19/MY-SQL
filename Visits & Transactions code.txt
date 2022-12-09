@@ -1,0 +1,71 @@
+create database VTdb;
+use VTdb;
+
+CREATE TABLE Visits(
+sl_no INT PRIMARY KEY,
+user_id INT,
+visit_date DATE
+);
+
+INSERT INTO Visits VALUES(1,1,'2020-01-01');
+INSERT INTO Visits VALUES(2,2,'2020-01-02');
+INSERT INTO Visits VALUES(3,12,'2020-01-01');
+INSERT INTO Visits VALUES(4,19,'2020-01-03');
+INSERT INTO Visits VALUES(5,1,'2020-01-02');
+INSERT INTO Visits VALUES(6,2,'2020-01-03');
+INSERT INTO Visits VALUES(7,1,'2020-01-04');
+INSERT INTO Visits VALUES(8,7,'2020-01-01');
+INSERT INTO Visits VALUES(9,9,'2020-01-05');
+INSERT INTO Visits VALUES(10,8,'2020-01-08');
+
+CREATE TABLE Transactions(
+sl_no INT PRIMARY KEY,
+user_id INT,
+transaction_date DATE,
+amount INT
+);
+
+INSERT INTO Transactions VALUES(1,1,'2020-01-02',120);
+INSERT INTO Transactions VALUES(2,2,'2020-01-03',22);
+INSERT INTO Transactions VALUES(3,7,'2020-01-11',232);
+INSERT INTO Transactions VALUES(4,1,'2020-01-04',7);
+INSERT INTO Transactions VALUES(5,9,'2020-01-25',33);
+INSERT INTO Transactions VALUES(6,9,'2020-01-25',66);
+INSERT INTO Transactions VALUES(7,8,'2020-01-28',1);
+INSERT INTO Transactions VALUES(8,9,'2020-01-25',99);
+
+/* Max User visit date */
+SELECT user_id,
+             COUNT(user_id) AS value_occurrence 
+    FROM Visits
+    GROUP BY user_id
+    ORDER BY value_occurrence DESC;
+    SELECT user_id, visit_date
+    FROM Visits
+    WHERE user_id = 1;
+    
+    /* Max amount transaction at a date */
+    SELECT MAX(transaction_date) AS Max_DATE, amount
+    FROM Transactions
+    WHERE amount = ( SELECT  MAX(amount) 
+	FROM Transactions);
+    
+/* User with max transaction amount */
+	SELECT user_id, amount
+    FROM Transactions
+    WHERE amount = ( SELECT  MAX(amount) 
+	FROM Transactions);
+    
+    /* Average transaction per day */
+    SELECT transaction_date, avg(amount)
+    FROM Transactions
+    GROUP BY transaction_date;
+    
+    /* User visited but did not do a transaction */
+    SELECT user_id
+	FROM Visits
+	WHERE user_id NOT IN 
+    (SELECT user_id
+    FROM Transactions
+    GROUP BY user_id)
+	GROUP BY user_id;
