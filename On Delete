@@ -1,0 +1,37 @@
+-- ON DELETE
+
+DELETE FROM employee
+WHERE emp_id = 102;
+
+SELECT * FROM employee;
+/*
+Here we find that on the delete of emp_id of 102
+all the rows who were attached to this emp_id, 
+are showing NULL. 
+This is what we wanted and that is why while creating the tables on this
+database we had mentioned " ON DELETE SET NULL ".
+*/
+SELECT * FROM branch;
+
+DELETE FROM branch
+WHERE branch_id = 4;
+
+
+DELETE FROM branch
+WHERE branch_id = 2;
+
+SELECT * FROM branch;
+SELECT * FROM client;
+SELECT * FROM branch_supplier;
+SELECT * FROM employee;
+
+/*
+Here in branch_supplier table we find that the branch_id = 2
+are no more in the table when we deleted branch_id =2 from branch table
+this is cause of "ON DELETE CASCADE" metioned while creating the branch
+table in the database.
+Again we can see that the client table or employee table showing NULL where
+branch_id was 2.
+This is because in these tables branch_id is a foreign key while in case branch
+and branch_supplier tables branch_id is the primary key.
+*/
