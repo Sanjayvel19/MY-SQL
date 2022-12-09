@@ -25,4 +25,4 @@ WHERE student_id <= 3 AND student_name <> 'SANJAY';
 
 SELECT *
 FROM student
-WHERE student_name IN ('KRISHNA','SANJAY','Kate');
+WHERE student_name IN ('KRISHNA','SANJAY');
