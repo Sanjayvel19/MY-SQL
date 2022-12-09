@@ -1,0 +1,7 @@
+-- Inserting Data inside the table
+
+INSERT INTO student(student_name, major) VALUES('Jack', 'Biology');
+INSERT INTO student(student_name, major)  VALUES('Kate', 'Sociology');
+INSERT INTO student(student_name) VALUES('Claire');
+INSERT INTO student(student_name, major)  VALUES('Jack', 'Biology');
+INSERT INTO student(student_name, major)  VALUES('Mike', 'Computer Science');
