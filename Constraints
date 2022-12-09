@@ -1,0 +1,9 @@
+- Creating Table
+CREATE TABLE student(
+    student_id INT AUTO_INCREMENT,
+    student_name VARCHAR(10) NOT NULL,
+    major VARCHAR(20) DEFAULT 'undecided',
+    PRIMARY KEY(student_id)
+);
+
+-- Here, AUTO INCREMENT, NOT NULL and DEFAULT are constraints.
