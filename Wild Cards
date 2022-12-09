@@ -1,0 +1,23 @@
+-- WILD CARDS
+
+-- Find the client who is from LLC
+
+SELECT *
+FROM client
+WHERE client_name LIKE '%LLC';
+
+-- Find any branch supplier who is in label business
+
+SELECT *
+FROM branch_supplier
+WHERE supplier_name LIKE '%Labels%';
+
+-- Find the employee who was born in october
+SELECT *
+FROM employee
+WHERE birth_day LIKE '%-10-%';
+
+-- Find a client who are school
+SELECT *
+FROM client
+WHERE client_name LIKE '%School%';
