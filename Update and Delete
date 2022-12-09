@@ -1,0 +1,16 @@
+-- UPDATE AND DELETE
+
+UPDATE student
+SET major = 'Bio'
+WHERE major = 'Biology';
+
+-- Update and Delete
+
+UPDATE student
+SET major = 'English'
+WHERE student_id = 3;
+
+INSERT INTO student(student_name, major) VALUES('John','Histroy');
+
+DELETE FROM student
+WHERE student_id >5;
