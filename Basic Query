@@ -1,4 +1,4 @@
--- Basic Quries
+--Basic Quries
 
 SELECT student_name, major
 FROM student;
