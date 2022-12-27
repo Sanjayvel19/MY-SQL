@@ -1,4 +1,4 @@
--- UPDATE AND DELETE
+--UPDATE AND DELETE
 
 UPDATE student
 SET major = 'Bio'
